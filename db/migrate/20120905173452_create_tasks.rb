@@ -3,8 +3,8 @@ class CreateTasks < ActiveRecord::Migration
     create_table :tasks do |t|
       t.date :day
       t.string :room
-      t.time :begin
-      t.time :end
+      t.string :begin
+      t.string :end
       t.string :gear
       t.string :preset
       t.string :setup

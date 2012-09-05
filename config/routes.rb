@@ -1,6 +1,7 @@
 Avschedule::Application.routes.draw do
   root to: 'static_pages#home'
 
+  resources :tasks
 
   get "static_pages/home"
 
