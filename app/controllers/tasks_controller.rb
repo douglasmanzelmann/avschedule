@@ -5,10 +5,17 @@ class TasksController < ApplicationController
 		@tomorrow = Task.for_tomorrow
 	end
 
-	def create
+	def new
+		@task = Task.new 
 	end
 
-	def new 
+	def create
+		@task = Task.new(params[:task])
+		if @task.save
+			redirect_to root_path
+		else 
+			render new
+		end
 	end
 
 	def edit 
