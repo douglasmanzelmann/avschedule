@@ -1,8 +1,7 @@
 class TasksController < ApplicationController
 
 	def index
-		@today = Task.for_today
-		@tomorrow = Task.for_tomorrow
+		@tasks = Task.all
 	end
 
 	def new
@@ -15,7 +14,7 @@ class TasksController < ApplicationController
 			flash[:success] = "New Task added!"
 			redirect_to root_path
 		else 
-			render 'new'
+			render action: 'new'
 		end
 	end
 

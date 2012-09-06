@@ -1,23 +1,6 @@
-<h2>Today</h2>
+<h2>All Tasks</h2>
 <ul>
-	<% @today.each do |task| %>
-
-		<li><%= task.day %> </li>
-		<li><%= task.room %></li>
-		<li><%= task.begin %></li>
-		<li><%= task.end %></li>
-		<li><%= task.gear %></li>
-
-	<% end %>
-</ul>
-
-<h2>Tomorrow</h2>
-<ul>
-	<% @tomorrow.each do |task| %>
-		<li><%= task.day %> </li>
-		<li><%= task.room %></li>
-		<li><%= task.begin %></li>
-		<li><%= task.end %></li>
-		<li><%= task.gear %></li>		
+	<% @tasks.each do |task| %>
+		<li><%= task.room %> | <%= task.begin %> - <%= task.end %> | <%= task.gear %></li>
 	<% end %>
 </ul>

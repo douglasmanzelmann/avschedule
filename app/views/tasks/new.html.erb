@@ -1,10 +1,17 @@
 <h1>New Task</h1>
 
-<% if flash[:error] %>
-	<div class="alert alert-error"><%= flash[:error] %></div>
-<% end %>
-
 <%= form_for(@task) do |t| %>
+
+	<% if @task.errors.any? %>
+		<div class="alert alert-error">
+			<ul>
+				<% @task.errors.full_messages.each do |task| %>
+					<li><%= task %></li>
+				<% end %>
+			</ul>
+		</div>
+	<% end %>
+
 	<%= t.label :day %>
 	<%= t.text_field :day %>
 
