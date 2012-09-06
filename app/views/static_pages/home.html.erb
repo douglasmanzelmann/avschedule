@@ -6,8 +6,8 @@
 				Today: <%= Date.current %>
 			</h3>
 			<div style="border: 1px solid black;">
-				<p>Today room: <%= @today %></p>
-				<p>Tomorrow room: <%= @tomorrow %> </p>
+				<p>Today room: <%= @today if @today %></p>
+				<p>Tomorrow room: <%= @tomorrow if @tomorrow %> </p>
 			</div>
 		</div>
 
