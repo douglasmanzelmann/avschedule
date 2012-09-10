@@ -6,16 +6,18 @@
 				Today: <%= Date.current %>
 			</h3>
 			<div style="border: 1px solid black;">
-				<p>Today room: <%= @today if @today %></p>
-				<p>Tomorrow room: <%= @tomorrow if @tomorrow %> </p>
+				<ul>
+					<% @today.each do |today| %>
+						<li><%= link_to "#{today.room}", task_path(today) %></li>
+					<% end %>
+				</ul>
 			</div>
 		</div>
 
 		<aside class="span3">
 			<h3>
-				New Task
+				<%= link_to "Create New Task", new_path, class: "btn btn-large btn-primary" %>
 			</h3>
 		</aside>
 	</div>
 </div>
-

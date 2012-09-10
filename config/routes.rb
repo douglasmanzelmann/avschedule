@@ -1,7 +1,8 @@
 Avschedule::Application.routes.draw do
-  root to: 'static_pages#home'
-
   resources :tasks
+
+  root to: 'static_pages#home'
+  match '/new', to: 'tasks#new'
 
   get "static_pages/home"
 
