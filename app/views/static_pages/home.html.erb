@@ -1,11 +1,11 @@
 <div class="span8">
-	<h1><%= Date.current %></h1>
+	<h1><%= Date.current.strftime("%A, %B %d, %Y") %></h1>
 			
 	<table class="table table-bordered table-hover table-striped">
 		<% @tasks.each do |t| %>
 			<tr>
 				<td><%= link_to "#{t.room}", task_path(t) %></td>
-				<td><%= t.begin %> - <%= t.end %></td>
+				<td><%= t.begin.strftime("%I:%M%P") %> - <%= t.end.strftime("%I:%M%P") %></td>
 				<td><%= t.gear %></td>
 				<td><%= t.preset %></td>
 				<td><%= t.setup %></td>
