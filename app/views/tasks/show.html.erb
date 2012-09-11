@@ -10,5 +10,5 @@
 </ul>
 
 <%= link_to "Edit", edit_task_path(@task), class: "btn btn-large btn-primary" %>
-<%= link_to "Delete", task_path(@task), method: :destroy, data: { confirm: "Are you sure you want to delete?" }, 
+<%= link_to "Delete", @task, method: :delete, data: { confirm: "Are you sure you want to delete?" }, 
 														  title: @task.room, class: "btn btn-large btn-primary" %>

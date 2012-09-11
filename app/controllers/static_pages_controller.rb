@@ -1,5 +1,6 @@
 class StaticPagesController < ApplicationController
   def home
-  	@today = Task.for_today.all
+  	@tasks = Task.for_today.all
+  	@task = Task.new
   end
 end

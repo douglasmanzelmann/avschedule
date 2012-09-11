@@ -1,23 +1,22 @@
-<div class="row">
-	<div class="container">
-		<h1>A/V Workspace</h1>
-		<div class="span8">
-			<h3>
-				Today: <%= Date.current %>
-			</h3>
-			<div style="border: 1px solid black;">
-				<ul>
-					<% @today.each do |today| %>
-						<li><%= link_to "#{today.room}", task_path(today) %></li>
-					<% end %>
-				</ul>
-			</div>
-		</div>
-
-		<aside class="span3">
-			<h3>
-				<%= link_to "Create New Task", new_path, class: "btn btn-large btn-primary" %>
-			</h3>
-		</aside>
-	</div>
+<div class="span8">
+	<h1><%= Date.current %></h1>
+			
+	<table class="table table-bordered table-hover table-striped">
+		<% @tasks.each do |t| %>
+			<tr>
+				<td><%= link_to "#{t.room}", task_path(t) %></td>
+				<td><%= t.begin %> - <%= t.end %></td>
+				<td><%= t.gear %></td>
+				<td><%= t.preset %></td>
+				<td><%= t.setup %></td>
+				<td><%= t.strike %></td>
+				<td><%= t.notes %></td>
+			</tr>
+		<% end %>
+	</table>
 </div>
+		
+<aside class="span3 newTask well">
+	<h3>New Task</h3>
+	<%= render 'shared/task_form', locals: { task: @task } %>
+</aside>

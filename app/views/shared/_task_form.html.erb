@@ -1,0 +1,35 @@
+<%= form_for(@task) do |t| %>
+
+	<% if @task.errors.any? %>
+		<div class="alert alert-error">
+			<ul>
+				<% @task.errors.full_messages.each do |task| %>
+					<li><%= task %></li>
+				<% end %>
+			</ul>
+		</div>
+	<% end %>
+
+	<%= t.label :day %>
+	<%= t.text_field :day %>
+
+	<%= t.label :room %>
+	<%= t.text_field :room %>
+
+	<%= t.label :begin %>
+	<%= t.text_field :begin %>
+
+	<%= t.label :end %>
+	<%= t.text_field :end %>
+
+	<%= t.label :gear %>
+	<%= t.text_field :gear %>
+
+	<%= t.label :preset %>
+	<%= t.text_field :preset %>
+
+	<%= t.label :notes %>
+	<%= t.text_field :notes %>
+
+	<%= t.submit "Create task", class: "btn btn-large btn-primary" %>
+<% end %>
