@@ -1,9 +1,5 @@
 <div class="span8">
-	<h2>
-		<%= link_to "<<", date: @date.prev_day %>
-		<%= @date.strftime("%A, %B %d, %Y") %>
-		<%= link_to ">>", date: @date.next_day %>
-	</h2>
+	<h1><%= Date.tomorrow.strftime("%A, %B %d, %Y") %></h1>
 			
 	<table class="table table-bordered table-hover table-striped">
 		<% @tasks.each do |t| %>

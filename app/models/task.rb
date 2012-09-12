@@ -8,4 +8,5 @@ class Task < ActiveRecord::Base
 
   scope :for_today, lambda { where(day: Date.today) }
   scope :for_tomorrow, lambda { where(day: Date.today.tomorrow) }
+  scope :for_date, lambda { |date| where(day: date ) }
 end

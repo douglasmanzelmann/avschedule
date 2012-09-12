@@ -16,8 +16,8 @@ ActiveRecord::Schema.define(:version => 20120905173452) do
   create_table "tasks", :force => true do |t|
     t.date     "day"
     t.string   "room"
-    t.string   "begin"
-    t.string   "end"
+    t.time     "begin"
+    t.time     "end"
     t.string   "gear"
     t.string   "preset"
     t.string   "setup"
