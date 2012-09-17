@@ -5,6 +5,7 @@ Avschedule::Application.routes.draw do
   match '/new', to: 'tasks#new'
 
   get "static_pages/home"
+  get "static_pages/month"
   match '/next', to: 'static_pages#next'
 
   # The priority is based upon order of creation:

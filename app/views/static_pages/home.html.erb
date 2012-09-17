@@ -5,17 +5,31 @@
 		<%= link_to ">>", date: @date.next_day %>
 	</h2>
 			
-	<table class="table table-bordered table-hover table-striped">
-		<% @tasks.each do |t| %>
+	<table class="table table-bordered table-striped table-hover">
+		<thead>
 			<tr>
-				<td><%= link_to "#{t.room}", task_path(t) %></td>
-				<td><%= t.begin.strftime("%I:%M%P") %> - <%= t.end.strftime("%I:%M%P") %></td>
-				<td><%= t.gear %></td>
-				<td><%= t.preset %></td>
-				<td><%= t.setup %></td>
-				<td><%= t.strike %></td>
-				<td><%= t.notes %></td>
-			</tr>
+				<th>Room</th>
+				<th>Time</th>
+				<th>Gear</th>
+				<th>Preset</th>
+				<th>Setup</th>
+				<th>Strike</th>
+				<th>Notes</th>
+			</tr>					
+		</thead>
+
+	<% @tasks.each do |t| %>
+			<tbody>
+				<tr>
+					<td><%= link_to "#{t.room}", task_path(t) %></td>
+					<td><%= t.begin.strftime("%I:%M%P") %> - <%= t.end.strftime("%I:%M%P") %></td>
+					<td><%= t.gear %></td>
+					<td><%= t.preset %></td>
+					<td><%= t.setup %></td>
+					<td><%= t.strike %></td>
+					<td><%= t.notes %></td>
+				</tr>
+			</tbody>
 		<% end %>
 	</table>
 </div>

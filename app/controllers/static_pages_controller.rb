@@ -1,12 +1,10 @@
 class StaticPagesController < ApplicationController
+
+  include ApplicationHelper
+
   def home
   	@date = params[:date] ? Date.parse(params[:date]) : Date.today
-  	@tasks = Task.for_date(@date).all
-  	@task = Task.new
-  end
-
-  def next
-  	@tasks = Task.for_tomorrow.all
+  	@tasks = sort_by_begin_time(Task.for_date(@date).all)
   	@task = Task.new
   end
 end
