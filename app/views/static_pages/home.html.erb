@@ -21,7 +21,7 @@
 	<% @tasks.each do |t| %>
 			<tbody>
 				<tr>
-					<td><%= link_to "#{t.room}", task_path(t) %></td>
+					<td><%= link_to "#{t.room}", edit_task_path(t) %></td>
 					<td><%= t.begin.strftime("%I:%M%P") %> - <%= t.end.strftime("%I:%M%P") %></td>
 					<td><%= t.gear %></td>
 					<td><%= t.preset %></td>

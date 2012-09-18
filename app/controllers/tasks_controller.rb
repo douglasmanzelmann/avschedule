@@ -20,7 +20,10 @@ class TasksController < ApplicationController
 	end
 
 	def edit 
-		@task = Task.find(params[:id]) 
+		@task = Task.find(params[:id])
+		@task.day = @task.day.strftime("%A, %B %d, %Y")
+		@task.begin = @task.begin.strftime("%I:%M%P") 
+		@task.end = @task.end.strftime("%I:%M%P")
 	end 
 
 	def show
