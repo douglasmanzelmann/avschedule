@@ -74,7 +74,23 @@ p {
 
 .newTask {
 	padding-left: 10px;
-  padding-top: 20px;
-  margin-top: 5em;
+  padding-top: 10px;
 }
 
+.short_field {
+  width: 50px;
+}
+
+.medium_field {
+  width: 125px;
+}
+
+#task_index {
+  .not_done {
+    background: #F9F9F9;
+  }
+
+  .done {
+    background: DimGray;
+  }
+}

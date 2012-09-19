@@ -1,40 +1,68 @@
-<div class="span8">
-	<h2>
-		<%= link_to "<<", date: @date.prev_day %>
-		<%= @date.strftime("%A, %B %d, %Y") %>
-		<%= link_to ">>", date: @date.next_day %>
-	</h2>
-			
-	<table class="table table-bordered table-striped table-hover">
-		<thead>
-			<tr>
-				<th>Room</th>
-				<th>Time</th>
-				<th>Gear</th>
-				<th>Preset</th>
-				<th>Setup</th>
-				<th>Strike</th>
-				<th>Notes</th>
-			</tr>					
-		</thead>
-
-	<% @tasks.each do |t| %>
-			<tbody>
-				<tr>
-					<td><%= link_to "#{t.room}", edit_task_path(t) %></td>
-					<td><%= t.begin.strftime("%I:%M%P") %> - <%= t.end.strftime("%I:%M%P") %></td>
-					<td><%= t.gear %></td>
-					<td><%= t.preset %></td>
-					<td><%= t.setup %></td>
-					<td><%= t.strike %></td>
-					<td><%= t.notes %></td>
-				</tr>
-			</tbody>
-		<% end %>
-	</table>
+<div class="row">
+	<div class="span9">
+		<h2>
+			<%= link_to "<<", date: @date.prev_day %>
+			<%= @date.strftime("%A, %B %d, %Y") %>
+			<%= link_to ">>", date: @date.next_day %>
+		</h2>
+	</div>
 </div>
-		
-<aside class="span3 newTask well">
-	<h3>New Task</h3>
-	<%= render 'shared/task_form', locals: { task: @task } %>
-</aside>
+
+<div class="row">
+	<div class="span9">
+		<table class="table table-bordered table-striped table-hover" id="task_index">
+			<thead>
+				<tr>
+					<th>Room</th>
+					<th>Time</th>
+					<th>Gear</th>
+					<th>Preset</th>
+					<th>Setup</th>
+					<th>Strike</th>
+					<th>Notes</th>
+				</tr>					
+			</thead>
+
+			<% @tasks.each do |t| %>
+				<tbody>
+					<tr>
+						<td><%= link_to "#{t.room}", edit_task_path(t) %></td>
+						<td><%= t.begin.strftime("%I:%M%P") %> - <%= t.end.strftime("%I:%M%P") %></td>
+						<td><%= t.gear %></td>
+						<td><%= t.preset %></td>
+
+						<% if t.setup == nil || t.setup == "" %>
+							<% @class = "not_done" %>
+						<% else %>
+							<% @class = "done" %>
+						<% end %>
+						<td class=<%= @class %>>
+							<%= form_for(t) do |isit| %>
+								<%= isit.text_field :setup, class: "short_field" %>
+								<%= isit.submit "Update", class: "btn" %>
+							<% end %>	
+						</td>
+
+						<% if t.strike == nil || t.strike == "" %>
+							<% @class = "not_done" %>
+						<% else %>
+							<% @class = "done" %>
+						<% end %>
+						<td>
+							<%= form_for(t) do |isit| %>
+								<%= isit.text_field :strike, class: "short_field" %>
+								<%= isit.submit "Update", class: "btn" %>
+							<% end %>	
+						</td>
+						<td><%= t.notes %></td>
+					</tr>
+				</tbody>
+			<% end %>
+		</table>
+	</div>
+			
+	<aside class="span2 newTask well">
+		<h3>New Task</h3>
+		<%= render 'shared/task_form', locals: { task: @task } %>
+	</aside>
+</div>
