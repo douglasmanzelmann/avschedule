@@ -30,6 +30,7 @@ GEM
       multi_json (~> 1.0)
     addressable (2.3.2)
     arel (3.0.2)
+    bcrypt-ruby (3.0.1)
     bcrypt-ruby (3.0.1-x86-mingw32)
     bootstrap-sass (2.0.4.2)
     builder (3.0.0)
@@ -85,6 +86,7 @@ GEM
     nokogiri (1.5.5)
     nokogiri (1.5.5-x86-mingw32)
     orm_adapter (0.4.0)
+    pg (0.12.2)
     pg (0.12.2-x86-mingw32)
     polyglot (0.3.3)
     rack (1.4.1)
@@ -161,6 +163,7 @@ PLATFORMS
   x86-mingw32
 
 DEPENDENCIES
+  bcrypt-ruby
   bootstrap-sass
   capybara (= 1.1.2)
   coffee-rails (~> 3.2.1)
