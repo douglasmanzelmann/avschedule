@@ -8,6 +8,7 @@ class Task < ActiveRecord::Base
 
   scope :for_date, lambda { |date| where(day: date ) }
   scope :room_stats, lambda { |room| where(room: room) }
+  scope :gear_stats, lambda { |gear| where(gear: gear) } 
 
   protected
 end
