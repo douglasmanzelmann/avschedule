@@ -10,6 +10,16 @@ class StaticPagesController < ApplicationController
   end
 
   def stats
-  	@rooms = rooms
+  	@room_list = room_list
+    @rooms = []
+
+    @room_list.each do |room|
+      room_hash = { }
+      room_stats = Task.room_stats(room)
+      room_hash[:room] = room
+      room_hash[:LCD] = room_stats.gear_stats("LCD").all.length
+      room_hash[:Vidcon] = room_stats.gear_stats("Vidcon").all.length
+      @rooms << room_hash
+    end
   end
 end

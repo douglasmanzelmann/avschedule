@@ -1,7 +1,9 @@
 <div class="row">
 	<% @rooms.each do |room| %>
 		<div class="span2">
-			
+			<h3><%= room[:room] %></h3>
+			<p><%= "LCD: #{room[:LCD]} " %></p>
+			<p><%= "Vidcon: #{room[:Vidcon]} " %></p>
 		</div>
 	<% end %>
 </div>
