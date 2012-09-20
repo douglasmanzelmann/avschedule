@@ -38,7 +38,7 @@
 						<% end %>
 						<td class=<%= @class %>>
 							<%= form_for(t) do |isit| %>
-								<%= isit.text_field :setup, class: "short_field" %>
+								<%= isit.text_field :setup, class: "short_field" %><br />
 								<%= isit.submit "Update", class: "btn" %>
 							<% end %>	
 						</td>
@@ -48,9 +48,9 @@
 						<% else %>
 							<% @class = "done" %>
 						<% end %>
-						<td>
+						<td class=<%= @class %>>
 							<%= form_for(t) do |isit| %>
-								<%= isit.text_field :strike, class: "short_field" %>
+								<%= isit.text_field :strike, class: "short_field" %><br />
 								<%= isit.submit "Update", class: "btn" %>
 							<% end %>	
 						</td>

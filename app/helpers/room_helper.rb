@@ -5,6 +5,6 @@ module RoomHelper
 				 "9W-103", "9W-104", "9E-502", "9E-406", "9E-407", "10W-103", "10W-104", 
 				 "11W-102", "11W-103", "11W-104", "12W-102", "12W-103", "12W-104", "12W-600", 
 				 "12E-406", "12E-407", "13W-101", "13E-406", "13E-407", "Fulbright", "Fulbright West",
-				 "Fulbright East" ]	
+				 "Fulbright East", "Courtroom", "Main lit" ]	
 	end
 end

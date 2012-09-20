@@ -5,9 +5,13 @@
       <nav>
         <ul class="nav pull-right">
           <li><%= link_to "Home", root_path %></li>
+          
             <% if user_signed_in? %>
-              <li><%link_to "Stats", stats_path %></li>
+            <li><%= link_to "Stats", stats_path %></li>
+              
               <li id="fat-menu" class="dropdown">
+
+
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                   <%= current_user.email %> <b class="caret"></b>
                 </a>
