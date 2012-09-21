@@ -2,8 +2,8 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.7'
 gem 'bootstrap-sass'
-gem 'mysql'
 gem 'devise'
+#gem 'cloudfoundry-devise', :require => 'devise'
 gem 'bcrypt-ruby'
 
 #gem 'sqlite3'
@@ -18,6 +18,10 @@ group :test do
   gem 'factory_girl_rails', '1.4.0'
 end
 
+group :production do
+  gem 'mysql'
+end
+
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
@@ -30,6 +34,7 @@ group :assets do
 end
 
 gem 'jquery-rails'
+#gem 'cloudfoundry-jquery-rails'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
