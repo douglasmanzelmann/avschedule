@@ -14,8 +14,8 @@
 	<%= t.text_field :day, class: "medium_field" %>
 
 	<%= t.label :room %>
-	<%= t.select :room , options_for_select(room_list), {prompt: "Select a room"}, class: "medium_field" %>
-	<%#= t.text_field :room, class: "medium_field" %>
+	<%= t.select :room , options_for_select(room_list), { prompt: "Select a room" }, 
+														class: "medium_field" %>
 
 	<%= t.label :begin %>
 	<%= t.text_field :begin, class: "medium_field"  %>
