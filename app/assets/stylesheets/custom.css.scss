@@ -77,6 +77,8 @@ p {
   padding-top: 10px;
 }
 
+/* home page - task table */
+
 .short_field {
   width: 50px;
   display: block;
@@ -95,4 +97,33 @@ p {
   .done {
     background: DimGray;
   }
+
+  .room {
+    width: 75px;
+  }
+
+  .time {
+    width: 150px;
+  }
+
+  .gear {
+    width: 100px;
+  }
+
+  .preset {
+    width: 100px;
+  }
+
+  .setup {
+    width: 75px;
+  }
+
+  .strike {
+    width: 75px;
+  }
+
+  .notes {
+    width: 125px;
+  }
 }
+

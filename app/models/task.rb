@@ -14,14 +14,16 @@ class Task < ActiveRecord::Base
   scope :gear_stats, lambda { |gear| where(gear: gear) } 
 
   def check_room_schedule
-    @conflicting_tasks = Task.for_date(self.day).for_room(self.room)
+    @conflicting_tasks = Task.for_date(self.day).for_room(self.room).list_in_asc_order
 
-    @conflicting_tasks.each do |task|
+    @conflicting_tasks.each_with_index do |task, index|
       if self.begin < task.begin
         self.notes = "There is another meeting in this room at #{task.begin.strftime("%I:%M%P")}."
-      elsif self.begin > task.begin 
-        task.notes = "There is another meeting in this room at #{self.begin.strftime("%I:%M%P")}"
-        task.save
+        break
+      elsif (self.begin > task.begin)
+        if ((index == @conflicting_tasks.length-1) || task.begin > @conflicting_tasks[index + 1].begin)
+          task.update_attributes(notes: "There is another meeting in this room at #{self.begin.strftime("%I:%M%P")}")
+        end
       end
     end
 
