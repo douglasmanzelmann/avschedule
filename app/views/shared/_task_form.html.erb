@@ -18,10 +18,10 @@
 														class: "medium_field" %>
 
 	<%= t.label :begin %>
-	<%= t.text_field :begin, class: "medium_field"  %>
+	<%= t.time_select :begin, {ampm: true, minute_step: 15}, class: "tiny_field" %>
 
 	<%= t.label :end %>
-	<%= t.text_field :end, class: "medium_field"  %>
+	<%= t.time_select :end, {ampm: true, minute_step: 15}, class: "tiny_field" %>
 
 	<%= t.label :gear %>
 	<%= t.text_field :gear, class: "medium_field"  %>
