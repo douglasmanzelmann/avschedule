@@ -16,22 +16,25 @@ class Task < ActiveRecord::Base
 
   def check_room_schedule
 
-    #### queries the DB for tasks on the same day and in the same room as the soon-to-be added task. ####
+    #### 1) queries the DB for tasks on the same day and in the same room as the soon-to-be added task. ####
     #### will soon add equipment, too. ####
     #### loads the tasks in an array, @room_tasks. ####
-    #### checks to see if self is the first task in the room on the day, updates the notes attrib and breaks. ####
-    #### if it's not the first, checks the current task's index to see if it's the last task in the DB ####
-    #### or if the current task's begin time is later than the next to avoid all tasks adding self.begin to their notes. ####
+    #### 2) checks to see if self is the first task in the room on the day, updates the notes attrib
+    #### 3) also if it's the first task, check the previous day, and update the last task if 
+    #### there is one.
+    #### 4) checks to see if it's the last task,and updates prevoius notes attrib
+    #### 5) if it's sandwiched, update the previous and self
 
     @room_tasks = Task.for_date(self.day).for_room(self.room).list_in_asc_order
     @room_tasks << self
     @room_tasks = sort_by_begin_time(@room_tasks)
     @self_position = @room_tasks.index(self)
-    self.preset = "self position: #{@self_position}"
 
     if @room_tasks.length >= 1
       if @self_position == 0 #### Self is the first element in the array ####
-        self.notes = "There is another meeting in this room at #{@room_tasks[@self_position+1].begin.strftime("%I:%M%P")}."
+        if @room_tasks.length > 1
+          self.notes = "There is another meeting in this room at #{@room_tasks[@self_position+1].begin.strftime("%I:%M%P")}."
+        end
 
         @last_room_task_yesterday = Task.for_date(self.day.yesterday).for_room(self.room).list_in_asc_order.last
         if @last_room_task_yesterday
