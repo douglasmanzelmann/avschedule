@@ -10,10 +10,13 @@ gem 'bcrypt-ruby'
 group :development, :test do 
 	gem 'sqlite3'
 	gem 'rspec-rails'
+  gem 'capybara'
+  gem 'guard-rspec'
+  gem 'wdm', :require => false
+  gem 'win32console'
 end
 
 group :test do
-  gem 'capybara', '1.1.2'
   gem 'factory_girl_rails', '1.4.0'
 end
 
